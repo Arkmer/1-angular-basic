@@ -1,7 +1,9 @@
-app.controller('HomeController', ['HomeService', '$scope', function(HomeService, $scope){
+app.controller('HomeController', ['HomeService', function(HomeService){
     console.log('HomeController -- loaded');
 
     let self = this;
     self.HomeService = HomeService;
-    $scope.message = self.HomeService.message;
+    self.message = HomeService.message;
+    self.count = HomeService.count;
+    self.test = HomeService.test;
 }]);

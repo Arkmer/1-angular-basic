@@ -1,2 +1,6 @@
 <h1>Home</h1>
-<p>{{message}}</p>
+<p>{{hc.message}}</p>
+<p>{{count}}</p>
+<button type="button" ng-click="count = count + 1" ng-init="count = 0">Add to the Count</button>
+<p>{{newText}}</p>
+<input type="text" ng-model="newText" ng-init="newText = 'Type Here'">
