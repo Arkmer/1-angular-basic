@@ -2,5 +2,15 @@
 <p>{{hc.message}}</p>
 <p>{{count}}</p>
 <button type="button" ng-click="count = count + 1" ng-init="count = 0">Add to the Count</button>
-<p>{{newText}}</p>
-<input type="text" ng-model="newText" ng-init="newText = 'Type Here'">
+<br>
+<input type="text" ng-model="hc.newText">
+<button ng-click="hc.lastCommit(hc.newText)">Commit Text</button>
+<p>Last Text: {{hc.lastText}}</p>
+<p>Current Text: {{hc.newText}}</p>
+
+<div>
+    <p>Text History</p>
+    <ul ng-repeat="item in hc.text.list">
+        <li>{{item}} <button ng-click="hc.deleteText(item)">X</button></li>
+    </ul>
+</div>

@@ -3,9 +3,5 @@ app.service('HomeService', function(){
     let self = this;
 
     self.message = 'I am alive!';
-    self.count = 0;
-    self.test = function(){
-        self.count += 1;
-        console.log('Test -- logged:', self.count);
-    }
+    self.text = {list: ['Initial Placeholder', 'Second Placeholder']};
 });
