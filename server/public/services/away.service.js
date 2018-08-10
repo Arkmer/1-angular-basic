@@ -1,4 +1,4 @@
-app.service('AwayService', function(){
+app.service('AwayService', ['$http', function($http){
     console.log('AwayService -- loaded');
     let self = this;
 
@@ -10,6 +10,15 @@ app.service('AwayService', function(){
 
     self.submitText = function(text){
         if (verbose == true){console.log('submitText -- Start');}
+        $http({
+            method: 'POST',
+            url: '/away/submit',
+            data: text
+        }).then((res)=>{
+
+        }).catch((error)=>{
+            console.log('submitText Error:', error);
+        })
         if (verbose == true){console.log('submitText -- Finish');}
     }
-});
+}]);
