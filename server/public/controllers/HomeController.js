@@ -16,10 +16,5 @@ app.controller('HomeController', ['HomeService', '$scope', function(HomeService,
 
     self.deleteText = function(text){
         console.log(text);
-    //     for(item in self.text.list){
-    //         if(text = item){
-    //             self.text.list.splice();
-    //         }
-    //     }
     }
 }]);
