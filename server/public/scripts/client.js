@@ -10,7 +10,7 @@ app.config(function($routeProvider){
         controller: 'AwayController as ac'
     }).when('/alpha', {
         templateUrl: 'views/alpha.html',
-        controller: 'AlphaController as ac'
+        controller: 'AlphaController as alc'
     }).when('/beta', {
         templateUrl: 'views/beta.html',
         controller: 'BetaController as bc'

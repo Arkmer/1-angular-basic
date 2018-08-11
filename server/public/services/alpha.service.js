@@ -3,7 +3,7 @@ app.service('AlphaService', ['$http', function($http){
     let self = this;
 
     self.textHold = {text: ''};
-    self.textArray= [];
+    self.textArray = [];
 
     self.textCommit = function(textInput){
         self.textHold = {text: textInput};
@@ -30,11 +30,15 @@ app.service('AlphaService', ['$http', function($http){
             url: '/alpha/getText'
         }).then((response)=>{
             console.log('textGet res.data:', response.data);
-            self.textArray = response.data;
+            self.textArrayUpdate(response.data);
+            console.log('textGet -- textArray -- Post Update:', self.textArray);
         }).catch((error)=>{
             console.log('textGet error:', error);
         })
     }
 
-    self.textGet();
+    self.textArrayUpdate = function(update){
+        self.textArray.list = update;
+        console.log('textArrayUpdate -- textArray -- Post Update:', self.textArray);
+    }
 }]);
