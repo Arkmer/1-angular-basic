@@ -7,6 +7,7 @@ app.controller('AlphaController', ['AlphaService', '$scope', function(AlphaServi
     self.textPost = AlphaService.textPost;
     self.textArray = AlphaService.textArray;
     self.textGet = AlphaService.textGet;
+    self.textDelete = AlphaService.textDelete;
 
     self.textGet();
 }]);

@@ -5,7 +5,7 @@
     <h2>Display Text</h2>
     <ul>
         <li ng-repeat="input in alc.textArray.list">
-            {{input.text}}
+            {{input.text}} <button ng-click="alc.textDelete(input.id)">X</button>
         </li>
     </ul>
 </div>

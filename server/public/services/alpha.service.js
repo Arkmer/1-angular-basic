@@ -13,7 +13,7 @@ app.service('AlphaService', ['$http', function($http){
         self.textCommit(text);
         $http({
             method: 'POST',
-            url: '/alpha/postText',
+            url: '/alpha',
             data: self.textHold
         }).then((response)=>{
             console.log('textPost res:', response.data);
@@ -27,18 +27,25 @@ app.service('AlphaService', ['$http', function($http){
     self.textGet = function(){
         $http({
             methof: 'GET',
-            url: '/alpha/getText'
+            url: '/alpha'
         }).then((response)=>{
             console.log('textGet res.data:', response.data);
-            self.textArrayUpdate(response.data);
-            console.log('textGet -- textArray -- Post Update:', self.textArray);
+            self.textArray.list = response.data;
         }).catch((error)=>{
             console.log('textGet error:', error);
         })
     }
 
-    self.textArrayUpdate = function(update){
-        self.textArray.list = update;
-        console.log('textArrayUpdate -- textArray -- Post Update:', self.textArray);
+    self.textDelete = function(id){
+        console.log('deleteText -- Start', id);
+        $http({
+            method: 'DELETE',
+            url: `/alpha/${id}`
+        }).then((response)=>{
+            console.log('textDelete res:', response.data);
+            self.textGet();
+        }).catch((error)=>{
+            console.log('textDelete error:', error);
+        })
     }
 }]);
