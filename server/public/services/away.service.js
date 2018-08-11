@@ -10,11 +10,11 @@ app.service('AwayService', ['$http', function($http){
 
     self.submitText = function(text){
         if (verbose == true){console.log('submitText -- Start');}
-        if (verbose == true){console.log('Sending:', text);}
+        if (verbose == true){console.log('Sending:', textHold);}
         $http({
             method: 'POST',
             url: '/away/submit',
-            data: {text: text}
+            data: {text: text} // GOAL: Move this into it's own variable and get the text box to clear.
         }).then((res)=>{
             console.log('submitText res:', res.data);
         }).catch((error)=>{

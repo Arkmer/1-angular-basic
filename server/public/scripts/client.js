@@ -8,5 +8,11 @@ app.config(function($routeProvider){
     }).when('/away', {
         templateUrl: 'views/away.html',
         controller: 'AwayController as ac'
+    }).when('/alpha', {
+        templateUrl: 'views/alpha.html',
+        controller: 'AlphaController as ac'
+    }).when('/beta', {
+        templateUrl: 'views/beta.html',
+        controller: 'BetaController as bc'
     }).otherwise({redirectTo: '/'});
-})
+});

@@ -13,3 +13,9 @@ app.listen(port, function(){
 
 const awayRouter = require('./routes/awayRouter.js');
 app.use('/away', awayRouter);
+
+const alphaRouter = require('./routes/alphaRouter.js');
+app.use('/alpha', alphaRouter);
+
+const betaRouter = require('./routes/betaRouter.js');
+app.use('/beta', betaRouter);
