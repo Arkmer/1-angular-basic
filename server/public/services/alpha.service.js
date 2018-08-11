@@ -2,12 +2,11 @@ app.service('AlphaService', ['$http', function($http){
     console.log('AlphaService -- loaded');
     let self = this;
 
-    self.textHold = {text: ''}
+    self.textHold = {text: ''};
+    self.textArray= [];
 
     self.textCommit = function(textInput){
-        // console.log('textCommit -- Start');
         self.textHold = {text: textInput};
-        // console.log('textCommit:', self.textHold);
     };
 
     self.textPost = function(text){
@@ -30,10 +29,12 @@ app.service('AlphaService', ['$http', function($http){
             methof: 'GET',
             url: '/alpha/getText'
         }).then((response)=>{
-            console.log('textGet res:', response);
             console.log('textGet res.data:', response.data);
+            self.textArray = response.data;
         }).catch((error)=>{
             console.log('textGet error:', error);
         })
     }
+
+    self.textGet();
 }]);
