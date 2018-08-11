@@ -2,4 +2,7 @@ app.controller('AlphaController', ['AlphaService', '$scope', function(AlphaServi
     console.log('AlphaController -- loaded');
     let self = this;
 
+    self.AlphaService = AlphaService;
+    self.textCommit = AlphaService.textCommit;
+    self.textPost = AlphaService.textPost;
 }]);
