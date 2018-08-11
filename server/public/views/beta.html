@@ -1,5 +1,8 @@
 <h1>Beta</h1>
 
+<button ng-if="!bc.hideToggle" ng-click="bc.toggleHide()">Hide = True</button>
+<button ng-if="bc.hideToggle" ng-click="bc.toggleHide()">Hide = False</button>
+
 <h2>Numbers</h2>
 <ul>
     <li ng-repeat="number in bc.numberArray">

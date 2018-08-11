@@ -6,4 +6,8 @@ app.controller('BetaController', ['BetaService', '$scope', function(BetaService,
     self.letterArray = BetaService.letterArray;
     
     self.numberArray = [1, 2, 3, 4, 5];
+
+    self.toggleHide = function(){
+        self.hideToggle = !self.hideToggle;
+    }
 }]);

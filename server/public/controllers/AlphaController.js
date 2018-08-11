@@ -10,4 +10,9 @@ app.controller('AlphaController', ['AlphaService', '$scope', function(AlphaServi
     self.textDelete = AlphaService.textDelete;
 
     self.textGet();
+
+    self.toggleEdit = function(input){
+        input.editHide = !input.editHide;
+        console.log('toggleEdit:', self.editHide);
+    }
 }]);

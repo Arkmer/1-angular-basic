@@ -4,8 +4,16 @@
 <div>
     <h2>Display Text</h2>
     <ul>
-        <li ng-repeat="input in alc.textArray.list">
-            {{input.text}} <button ng-click="alc.textDelete(input.id)">X</button>
+        <li ng-repeat="flip in alc.textArray.list">
+            <p ng-if="!alc.flip.editHide">{{flip.text}}
+                <button type="button" ng-click="alc.toggleEdit(flip)">E</button>
+                <button ng-click="alc.textDelete(flip.id)">X</button>
+            </p>
+            <p ng-if="alc.flip.editHide">
+                <input type="text" ng-model="flip.text">
+                <button>+</button>
+                <button type="button" ng-click="alc.toggleEdit(flip)"><-</button>
+            </p>
         </li>
     </ul>
 </div>
