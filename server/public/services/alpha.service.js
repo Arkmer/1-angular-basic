@@ -4,6 +4,7 @@ app.service('AlphaService', ['$http', function($http){
 
     self.textHold = {text: ''};
     self.textArray = [];
+    self.update = {};
 
     self.textCommit = function(textInput){
         self.textHold = {text: textInput};
@@ -37,7 +38,7 @@ app.service('AlphaService', ['$http', function($http){
     }
 
     self.textDelete = function(id){
-        console.log('deleteText -- Start', id);
+        console.log('textDelete -- Start', id);
         $http({
             method: 'DELETE',
             url: `/alpha/${id}`
@@ -46,6 +47,22 @@ app.service('AlphaService', ['$http', function($http){
             self.textGet();
         }).catch((error)=>{
             console.log('textDelete error:', error);
+        })
+    }
+
+    self.textEdit = function(edit, id){
+        console.log('textEdit -- Update:', edit);
+        console.log('textEdit -- ID:', id);
+        self.update.edit = edit;
+        self.update.id = id
+        $http({
+            method: 'PUT',
+            url: `/alpha`,
+            data: self.update
+        }).then((response)=>{
+            self.textGet();
+        }).catch((error)=>{
+            console.log('textEdit error:', error);
         })
     }
 }]);

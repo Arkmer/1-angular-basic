@@ -5,13 +5,14 @@
     <h2>Display Text</h2>
     <ul>
         <li ng-repeat="flip in alc.textArray.list">
-            <p ng-if="!alc.flip.editHide">{{flip.text}}
-                <button type="button" ng-click="alc.toggleEdit(flip)">E</button>
+            <p ng-if="!flip.editHide">
+                {{flip.text}}
+                <button type="button" ng-click="alc.toggleEdit(flip, flip.text, flip.id)">E</button>
                 <button ng-click="alc.textDelete(flip.id)">X</button>
             </p>
-            <p ng-if="alc.flip.editHide">
+            <p ng-if="flip.editHide">
                 <input type="text" ng-model="flip.text">
-                <button>+</button>
+                <button ng-click="alc.toggleEdit(flip, flip.text, flip.id); alc.textEdit(flip.text, flip.id)">+</button>
                 <button type="button" ng-click="alc.toggleEdit(flip)"><-</button>
             </p>
         </li>

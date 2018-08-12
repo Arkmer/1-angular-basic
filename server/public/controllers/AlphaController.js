@@ -8,11 +8,12 @@ app.controller('AlphaController', ['AlphaService', '$scope', function(AlphaServi
     self.textArray = AlphaService.textArray;
     self.textGet = AlphaService.textGet;
     self.textDelete = AlphaService.textDelete;
+    self.textEdit = AlphaService.textEdit;
 
     self.textGet();
 
-    self.toggleEdit = function(input){
+    self.toggleEdit = function(input, text, id){
         input.editHide = !input.editHide;
-        console.log('toggleEdit:', self.editHide);
+        console.log('toggleEdit:', text, 'ID:', id);
     }
 }]);
